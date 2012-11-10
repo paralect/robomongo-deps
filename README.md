@@ -1,4 +1,5 @@
-robomongo-deps
-==============
+Robomongo Dependencies
+======================
 
-Robomongo dependencies
+Library Pack that contains self-compiled collection of various Robomongo dependencies.
+
