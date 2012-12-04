@@ -43,11 +43,11 @@ rem target folder where build will be placed
 set TARGET=%PROJECT_ROOT%target\%MODE%
 
 if %MODE% == debug (
-  set CMAKE_ARGS= cmake -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug
+  set CMAKE_ARGS= -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug
 )
 
 if %MODE% == release (
-  set CMAKE_ARGS= cmake -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
+  set CMAKE_ARGS= -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
 )
 
 echo Target folder: %TARGET%
