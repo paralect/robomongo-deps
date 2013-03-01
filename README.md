@@ -6,7 +6,7 @@ Library Pack that contains self-compiled collection of various Robomongo depende
 ## Building QScintilla (Linux)
 
     $ cd deps/qscintilla/build
-    $ ./rebuild debug
+    $ ./rebuild.sh debug
 
 Compiled libs will be here:
 
@@ -16,7 +16,7 @@ Compiled libs will be here:
 ## Building QJson (Linux)
 
     $ cd deps/qjson/build
-    $ ./rebuild debug
+    $ ./rebuild.sh debug
     
 Compiled libs will be here:
 
