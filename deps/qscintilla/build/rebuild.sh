@@ -2,11 +2,22 @@
 #  Configuration
 # ****************
 
-MODE=$1
-
-if [ -z $MODE ]; then
-   MODE=debug
-fi
+MODE=debug
+while getopts ":dra" opt; do
+  case $opt in
+    d) MODE=debug ;;
+    r) MODE=release ;;
+    a) MODE=all ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
 
 if [[ $MODE != "release" ]] && [[ $MODE != "debug" ]] && [[ $MODE != "all" ]]; then
     echo
@@ -16,5 +27,5 @@ if [[ $MODE != "release" ]] && [[ $MODE != "debug" ]] && [[ $MODE != "all" ]]; t
 fi
 
 # clean and build
-./clean.sh $MODE
-./build.sh $MODE
+./clean.sh $@
+./build.sh $@

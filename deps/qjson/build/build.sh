@@ -2,11 +2,24 @@
 #  Configuration
 # ****************
 
-MODE=$1
+MODE=debug
+while getopts ":dra" opt; do
+  case $opt in
+    d) MODE=debug ;;
+    r) MODE=release ;;
+    a) MODE=all ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
 
-if [ -z $MODE ]; then
-   MODE=debug
-fi
+echo "Build mode: $MODE"
 
 if [[ $MODE != "release" ]] && [[ $MODE != "debug" ]] && [[ $MODE != "all" ]]; then
     echo
@@ -23,8 +36,8 @@ fi
 
 # if 'all' specified - build in debug and release mode
 if [[ $MODE = "all" ]]; then
-  $0 debug
-  $0 release
+  $0 -d
+  $0 -r
   exit 0
 fi
 
